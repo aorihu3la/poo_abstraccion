@@ -1,0 +1,93 @@
+@startuml
+
+'RELACIONES
+ElementoForm <|-- SelectForm
+ElementoForm <|-- InputForm
+ElementoForm <|-- TextAreaForm
+SelectForm o-- Opcion
+ElementoForm o-- Validador
+Validador <|-- RequeridoValidador
+Validador <|-- EmailValidador
+Validador <|-- LargoValidador
+Validador <|-- NoNuloValidador
+Validador <|-- NumeroValidador
+
+' CLASES
+
+abstract class ElementoForm{
+#nombre: String
+#valor: String
+#validadores: List
+#errores: List
++{abstract}dibujarHtml(): String
++esValido(): Boolean
++addValidador(validador: Validador)
+}
+
+class SelectForm{
++dibujarHtml(): String
++addOpcion(opcion: Opcion)
+}
+
+class InputForm{
+-tipo: String="Texto"
++dibujarHtml(): String
+}
+
+class TextAreaForm{
+-filas: Integer
+-columnas: Integer
++dibujarHtml(): String
+}
+
+
+class Opcion{
+-nombre: String
+-valor: String
+}
+
+abstract class Validador{
+#mensaje: String
++{abstract}esValido(valor: String): Boolean
++{abstract}getMensaje(): String
++{abstract}setMensaje(mensaje: String)
+}
+
+class LargoValidador{
+#mensaje: String
+-min: Integer
+-max: Integer
++esValido(valor: String): Boolean
++getMensaje(): String
++setMensaje(mensaje: String)
+}
+
+class EmailValidador{
+#mensaje: String
++esValido(valor: String): Boolean
++getMensaje(): String
++setMensaje(mensaje: String)
+}
+
+class NoNuloValidador{
+#mensaje: String
++esValido(valor: String): Boolean
++getMensaje(): String
++setMensaje(mensaje: String)
+}
+
+class NumeroValidador{
+#mensaje: String
++esValido(valor: String): Boolean
++getMensaje(): String
++setMensaje(mensaje: String)
+}
+
+class RequeridoValidador{
+#mensaje: String
++esValido(valor: String): Boolean
++getMensaje(): String
++setMensaje(mensaje: String)
+}
+
+@enduml
