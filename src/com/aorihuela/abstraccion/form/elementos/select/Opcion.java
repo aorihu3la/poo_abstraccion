@@ -1,8 +1,8 @@
 package com.aorihuela.abstraccion.form.elementos.select;
 
 public class Opcion {
-    private String nombre;
     private String valor;
+    private String nombre;
     private boolean selected;
 
     // CONSTRUCTORES
@@ -10,9 +10,9 @@ public class Opcion {
     public Opcion() {
     }
 
-    public Opcion(String nombre, String valor) {
-        this.nombre = nombre;
+    public Opcion(String valor, String nombre) {
         this.valor = valor;
+        this.nombre = nombre;
     }
 
     //GETERS AND SETERS
