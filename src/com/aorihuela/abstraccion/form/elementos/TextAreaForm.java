@@ -1,7 +1,5 @@
 package com.aorihuela.abstraccion.form.elementos;
 
-import javax.swing.*;
-
 public class TextAreaForm extends ElementoForm{
     //ATRIBUTOS
     private Integer filas;
@@ -27,8 +25,7 @@ public class TextAreaForm extends ElementoForm{
         return "<textarea name=\"" + this.nombre
                 + "\" rows=\"" + this.filas
                 + "\" cols=\"" + this.columnas
-                + "\">" + this.valor
-                + "\n"
+                + "\">\n" + this.valor
                 + "\n</textarea>";
 //        <textarea id="w3review" name="w3review" rows="4" cols="50">
     }
